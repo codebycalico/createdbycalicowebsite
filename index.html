@@ -1,23 +1,32 @@
+<!-- This is the landing / home page. Very simple, split screen style
+    that takes the viewer to two different html websites.
+    head holds the metadata for teh website.
+    body holds what's actually showing on the website.  -->
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Work</title>
+    <title>created by calico</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="split photography">
-      <a href="photography.html" class="split-link">
+      <a href="photography/photography.html" class="split-link">
         <span class="split-label">photography</span>
       </a>
     </div>
     <div class="split tech">
+      <!-- attaach a canvas and id so the background of the section can be customized. -->
       <canvas id="tech-canvas"></canvas>
-      <a href="tech.html" class="split-link">
-        <span class="split-label">Fabrication</span>
+      <a href="technology/tech.html" class="split-link">
+        <span class="split-label" data-text="technology"></span>
       </a>
     </div>
+    <!-- this line is for the javascript background of the technology section and the
+        typewriter effect on hovering.
+        scripts go at the bottom so that the html loads first. -->
     <script src="tech-bg.js"></script>
+    <script src="landing-typewriter.js"></script>
   </body>
 </html>

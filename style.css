@@ -1,3 +1,5 @@
+/* CSS for the home / landing page */
+
 * {
   margin: 0;
   padding: 0;
@@ -14,11 +16,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* transition to smooth movement instead of being choppy 
+    width is specifying what is being animated. */
   transition: width 0.4s ease;
 }
 
+/* how much of the page the section that's being hovered on takes up */
 .split:hover {
-  width: 60%;
+  width: 75%;
 }
 
 .split-link {
@@ -28,6 +33,8 @@ body {
   justify-content: center;
 }
 
+/* make padding around the label so the area around the text is clickable
+    instead of just the exact text itself. */
 .split-label {
   font-size: 3rem;
   letter-spacing: 0.1em;
@@ -36,22 +43,23 @@ body {
   padding: 1rem 2rem;
 }
 
+/* how much of the page the section that's being hovered on takes up */
 .split:hover .split-label {
   transform: scale(1.5);
 }
 
-/* Photography side — warm & film-like */
+/* Photography side — calico warm */
 .photography {
-  background-color: #f5ead6;
-  border-right: 1px solid #c9a96e;
+  background-color: #f0ede8;
+  border-right: 1px solid #c17f24;
   font-family: "Garamond", serif;
 }
 
 .photography .split-label {
-  color: #7a5c2e;
+  color: #c17f24;
 }
 
-/* Tech side — hacker terminal */
+/* Tech side, hacker terminal vibe */
 .tech {
   background-color: #0a0a0a;
   font-family: "Courier New", monospace;
@@ -75,8 +83,27 @@ body {
   position: relative;
 }
 
+/* bring forward on the page, so the link is clickable through the text */
 .tech .split-link {
   z-index: 1;
+}
+
+/* add _ blink after "technology"
+    this is only called after the JS animation has completed.
+    calling of this is controlled in the landing-typewriter.js script */
+.tech .split-label.cursor::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* if viewing on a mobile device, split the screen vertically instead of horizontally */

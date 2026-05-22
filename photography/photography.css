@@ -11,6 +11,7 @@ body {
 }
 
 nav {
+  /* stick position keeps the nav bar at the top as you scroll */
   position: sticky;
   top: 0;
   background-color: #f0ede8;
@@ -33,6 +34,7 @@ nav a:hover {
 }
 
 .nav-home {
+  /* all links other than the home link are pushed all the way to the right */
   margin-right: auto;
 }
 
@@ -49,6 +51,7 @@ h2 {
   letter-spacing: 0.05em;
 }
 
+/* create an equal three column grid */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -57,11 +60,14 @@ h2 {
 
 .photo-grid img {
   width: 100%;
+  /* aspect-ration 1 forces the image into a square regardless of original size */
   aspect-ratio: 1;
+  /* cover crops the image to fit rather than stretching it */
   object-fit: cover;
   filter: sepia(0.15) contrast(0.95);
 }
 
+/* what happens when the mouse is hovering over an image */
 .photo-grid img:hover {
   filter: sepia(0) contrast(1);
   cursor: pointer;

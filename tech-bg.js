@@ -4,9 +4,10 @@ const ctx = canvas.getContext("2d");
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
 
-const chars = "01アイウエオカキクケコ";
+const chars = "000111アイウエオカキクケコ";
 const fontSize = 14;
 const columns = Math.floor(canvas.width / fontSize);
+// start the drops at a random place above the page so they all drop at separate / random times
 const drops = Array.from({ length: columns }, () => Math.random() * -50);
 
 function draw() {
@@ -27,4 +28,5 @@ function draw() {
   }
 }
 
+// call the function every # milliseconds
 setInterval(draw, 50);
