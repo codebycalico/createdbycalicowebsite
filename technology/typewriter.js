@@ -1,3 +1,8 @@
+/* 
+  calico rose's website - createdbycalico.com
+  typewriter effect for the headers on the technology page
+*/
+
 // select all document objects that match what's in the quotes (every h2 that has a data-text attribute)
 const headings = document.querySelectorAll("h2[data-text]");
 

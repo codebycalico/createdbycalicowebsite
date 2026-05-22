@@ -1,3 +1,9 @@
+/* 
+    calico rose's website - createdbycalico.com
+    Matrix rain script for the technology section background on the landing page.
+    Reference: https://dev.to/javascriptacademy/matrix-raining-code-effect-using-javascript-4hep
+*/
+
 const canvas = document.getElementById("tech-canvas");
 const ctx = canvas.getContext("2d");
 

@@ -1,4 +1,7 @@
-/* CSS for the home / landing page */
+/* 
+    calico rose's website - createdbycalico.com
+    CSS for the home / landing page
+*/
 
 * {
   margin: 0;
@@ -57,6 +60,32 @@ body {
 
 .photography .split-label {
   color: #c17f24;
+}
+
+.photography .split-label span {
+  display: inline-block;
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+/* photography header animation */
+.photography .split-label.floating span {
+  animation: floatIn 1.5s ease forwards;
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0.3;
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Tech side, hacker terminal vibe */
