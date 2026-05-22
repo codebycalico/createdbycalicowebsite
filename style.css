@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+}
+
+.split {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.4s ease;
+}
+
+.split:hover {
+  width: 60%;
+}
+
+.split-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.split-label {
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  transition: transform 0.3s ease;
+  padding: 1rem 2rem;
+}
+
+.split:hover .split-label {
+  transform: scale(1.5);
+}
+
+/* Photography side — warm & film-like */
+.photography {
+  background-color: #f5ead6;
+  border-right: 1px solid #c9a96e;
+  font-family: "Garamond", serif;
+}
+
+.photography .split-label {
+  color: #7a5c2e;
+}
+
+/* Tech side — hacker terminal */
+.tech {
+  background-color: #0a0a0a;
+  font-family: "Courier New", monospace;
+}
+
+.tech .split-label {
+  color: #00ff41;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+#tech-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.tech {
+  position: relative;
+}
+
+.tech .split-link {
+  z-index: 1;
+}
+
+/* if viewing on a mobile device, split the screen vertically instead of horizontally */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .split {
+    width: 100%;
+    height: 50%;
+  }
+
+  .split:hover {
+    width: 100%;
+    height: 60%;
+  }
+}
