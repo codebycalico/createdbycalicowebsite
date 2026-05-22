@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #00ff41;
+  font-family: "Courier New", monospace;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #0a0a0a;
+  border-bottom: 1px solid #00ff41;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+nav a {
+  color: #00ff41;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+nav a:hover {
+  text-shadow: 0 0 8px #00ff41;
+}
+
+.nav-home {
+  margin-right: auto;
+}
+
+section {
+  padding: 5rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #00ff41;
+}
+
+/* Projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  border: 1px solid #00ff41;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-card:hover {
+  background-color: #0d1f0d;
+  box-shadow: 0 0 12px #00ff4133;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid #00ff41;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  margin-right: 0.4rem;
+  opacity: 0.7;
+}
+
+/* Blog */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.blog-post {
+  border-left: 2px solid #00ff41;
+  padding-left: 1.5rem;
+}
+
+.post-date {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+p {
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+a {
+  color: #00ff41;
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0 0 8px #00ff41;
+}
+
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  filter: grayscale(0.3) contrast(1.1);
+}
+
+.project-card img:hover {
+  filter: grayscale(0) contrast(1);
+}
+
+h2::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
