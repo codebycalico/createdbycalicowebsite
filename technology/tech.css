@@ -11,7 +11,7 @@
 
 body {
   background-color: #0a0a0a;
-  color: #00ff41;
+  color: #ea70ec;
   font-family: "Courier New", monospace;
 }
 
@@ -19,7 +19,7 @@ nav {
   position: sticky;
   top: 0;
   background-color: #0a0a0a;
-  border-bottom: 1px solid #00ff41;
+  border-bottom: 1px solid #ea70ec;
   padding: 1rem 2rem;
   display: flex;
   gap: 2rem;
@@ -27,14 +27,14 @@ nav {
 }
 
 nav a {
-  color: #00ff41;
+  color: #ea70ec;
   text-decoration: none;
   font-size: 0.95rem;
   letter-spacing: 0.05em;
 }
 
 nav a:hover {
-  text-shadow: 0 0 8px #00ff41;
+  text-shadow: 0 0 8px #ea70ec;
 }
 
 .nav-home {
@@ -52,13 +52,13 @@ h2 {
   margin-bottom: 2rem;
   letter-spacing: 0.1em;
   text-transform: lowercase;
-  text-shadow: 0 0 10px #00ff41;
+  text-shadow: 0 0 10px #ea70ec;
 }
 
 h3 {
   font-size: 1.1rem;
   margin-bottom: 0.75rem;
-  color: #00ff41;
+  color: #ea70ec;
 }
 
 /* Projects */
@@ -69,7 +69,7 @@ h3 {
 }
 
 .project-card {
-  border: 1px solid #00ff41;
+  border: 1px solid #ea70ec;
   padding: 1.5rem;
   display: flex;
   /* this flex direction ensures that the project tags always sit at the bottom of the project card */
@@ -78,14 +78,15 @@ h3 {
 }
 
 .project-card:hover {
-  background-color: #0d1f0d;
+  background-color: #4e0c4f;
   /* the 33 added at the end if for opacity to make a transparent glow effect */
-  box-shadow: 0 0 12px #00ff4133;
+  box-shadow: 0 0 12px #5ac6ee;
+  color: #5ac6ee;
 }
 
 .tag {
   display: inline-block;
-  border: 1px solid #00ff41;
+  border: 1px solid #ea70ec;
   padding: 0.2rem 0.5rem;
   font-size: 0.75rem;
   margin-right: 0.4rem;
@@ -100,7 +101,7 @@ h3 {
 }
 
 .blog-post {
-  border-left: 2px solid #00ff41;
+  border-left: 2px solid #ea70ec;
   padding-left: 1.5rem;
 }
 
@@ -117,12 +118,12 @@ p {
 }
 
 a {
-  color: #00ff41;
+  color: #ea70ec;
   text-decoration: none;
 }
 
 a:hover {
-  text-shadow: 0 0 8px #00ff41;
+  text-shadow: 0 0 8px #5ac6ee;
 }
 
 @media (max-width: 768px) {
