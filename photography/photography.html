@@ -12,6 +12,7 @@
     <title>photography</title>
     <link rel="stylesheet" href="photography.css" />
   </head>
+
   <body>
     <nav>
       <a href="../index.html" class="nav-home">← home</a>
@@ -21,10 +22,13 @@
     </nav>
 
     <section id="gallery">
-      <h2>gallery</h2>
+      <div class="gallery-header">
+        <h2>gallery</h2>
+        <a href="gallery.html" class="gallery-page">more photos →</a>
+      </div>
       <div class="photo-grid">
         <img src="images/photo1.jpg" alt="Photo 1" />
-        <img src="images/photo1.jpg" alt="Photo 2" />
+        <img src="images/photo2.jpg" alt="Photo 2" />
         <img src="images/photo1.jpg" alt="Photo 3" />
       </div>
     </section>
@@ -63,5 +67,11 @@
         defer
       ></script>
     </section>
+
+    <div class="lightbox" id="lightbox">
+      <span class="lightbox-close">✕</span>
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+    <script src="lightbox.js"></script>
   </body>
 </html>

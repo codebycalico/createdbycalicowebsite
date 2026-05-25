@@ -56,6 +56,17 @@ h2 {
   letter-spacing: 0.05em;
 }
 
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*margin-bottom: 2rem;*/
+}
+
+.gallery-header h2 {
+  min-height: 1em;
+}
+
 /* create an equal three column grid */
 .photo-grid {
   display: grid;
@@ -69,12 +80,12 @@ h2 {
   aspect-ratio: 1;
   /* cover crops the image to fit rather than stretching it */
   object-fit: cover;
-  filter: sepia(0.15) contrast(0.95);
 }
 
 /* what happens when the mouse is hovering over an image */
 .photo-grid img:hover {
-  filter: sepia(0) contrast(1);
+  transition: transform 0.3s ease;
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -84,6 +95,46 @@ p {
 }
 
 a {
+  color: #c17f24;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+/* active means upon being clicked */
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  filter: none;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: #f0ede8;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.lightbox-close:hover {
   color: #c17f24;
 }
 
