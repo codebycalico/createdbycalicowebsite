@@ -144,12 +144,7 @@ a:hover {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   margin-bottom: 0.5rem;
-  /* gives a desaturated, high contrast effect that is lifted when hovered over */
-  filter: grayscale(0.3) contrast(1.1);
-}
-
-.project-card img:hover {
-  filter: grayscale(0) contrast(1);
+  object-position: top;
 }
 
 /* add a _ blinking after every header on the tech page that continues infinitely */
