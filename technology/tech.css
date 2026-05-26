@@ -24,6 +24,7 @@ nav {
   display: flex;
   gap: 2rem;
   align-items: center;
+  z-index: 5;
 }
 
 nav a {
@@ -137,12 +138,6 @@ a:hover {
   text-shadow: 0 0 8px #5ac6ee;
 }
 
-@media (max-width: 768px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .project-card img {
   width: 100%;
   /* landscape aspect ratio */
@@ -163,6 +158,12 @@ h2::after {
   animation: blink 1s step-end infinite;
 }
 
+footer {
+  border-top: 1px solid #ea70ec;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
 @keyframes blink {
   0%,
   100% {
@@ -170,5 +171,141 @@ h2::after {
   }
   50% {
     opacity: 0;
+  }
+}
+
+/* INDIVIDUAL PROJECT PAGES FORMATTING */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.video-card {
+  border: 1px solid #ea70ec;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.video-card video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.project-image {
+  width: 35%;
+  margin-bottom: 1rem;
+}
+
+.lisa-graphic {
+  margin: -1rem;
+  padding: -1rem;
+}
+
+.float-right {
+  float: right;
+  margin-left: 2rem;
+}
+
+.float-left {
+  float: left;
+  margin-right: 2rem;
+}
+
+.project-description p {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.project-description::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.tilt-img {
+  animation: tiltimage 2s infinite;
+}
+
+@keyframes tiltimage {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(20deg);
+  }
+  50% {
+    transform: rotateZ(0deg);
+  }
+  75% {
+    transform: rotateZ(-20deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+.hover-img {
+  position: relative;
+  float: right;
+  width: 40%;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  line-height: 0;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.hover-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hover-img:hover img {
+  opacity: 0.2;
+}
+
+.hover-img .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hover-img:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  color: #5ac6ee;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem 1rem;
+  border: 1px solid #5ac6ee;
+}
+
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-image {
+    .project-image {
+      float: none;
+      width: 100%;
+      margin-left: 0;
+    }
   }
 }
