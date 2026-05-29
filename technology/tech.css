@@ -289,6 +289,28 @@ footer {
   border: 1px solid #5ac6ee;
 }
 
+.click-enlarge {
+  z-index: 3;
+  transition: scale 0.4s ease-in-out;
+}
+
+.click-enlarge:hover {
+  cursor: pointer;
+  animation: enlargeimage 0.75s;
+}
+
+@keyframes enlargeimage {
+  0% {
+    scale: 100%;
+  }
+  50% {
+    scale: 130%;
+  }
+  100% {
+    scale: 110%;
+  }
+}
+
 @media (max-width: 768px) {
   .project-grid {
     grid-template-columns: 1fr;

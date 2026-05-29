@@ -3,6 +3,9 @@
   echoing emotions project page
   YouTube video references: https://www.w3schools.com/hTml/html_youtube.asp
   https://www.reddit.com/r/webdev/comments/1oqs3j6/fix_for_youtube_embedded_player_error_153/
+  note for youtube embedding: just go to share on the youtube video and copy the embbedding code.
+  it will likely show a 153 error when hosting locally, but after pushing to github, the .io or custom 
+  domain will show a working embedded video.
 -->
 
 <!doctype html>
@@ -18,7 +21,7 @@
         background-repeat: no-repeat;
         background-attachment: scroll;
         background-position: top 60px right;
-        background-size: 55%;
+        background-size: 50%;
       }
       nav {
         border-bottom: 1px solid #5ac6ee;
@@ -58,7 +61,7 @@
       <h2 data-text="echoing emotions"></h2>
       <div class="video-grid">
         <div class="video-card">
-          <<iframe
+          <iframe
             width="560"
             height="315"
             src="https://www.youtube.com/embed/-iVACinS6EY?si=LROFhtpU55CCmF1l"
@@ -114,22 +117,36 @@
           it triggers the software to begin facial expression detection, which
           has a time out for cases of false triggering.
         </p>
-        <img
-          src="../media/ee/TobyChar.png"
-          alt="transparent image of the heads of two american paint quarter horses side by side."
-          class="project-image float-left tilt-img"
-        />
+        <div>
+          <img
+            src="../media/ee/instructions.png"
+            alt=""
+            class="project-image float-left"
+          />
+        </div>
         <p>
           using deepface and opencv, i created facial expression detection for
           three main emotions: happy, sad, and angry. when one of these emotions
           is detected with reasonable confidence, a cooresponding video is
           played from an array of videos i filmed.
         </p>
+        <div>
+          <img
+            src="../media/ee/description.png"
+            alt=""
+            class="project-image float-right"
+          />
+        </div>
         <p>
           i created the instructions cards that were able to be taken home as a
           momento from the experience and the description of the exhibit. this
           exhibit was particularly close to my heart, as horses are.
         </p>
+        <img
+          src="../media/ee/TobyChar.png"
+          alt="transparent image of the heads of two american paint quarter horses side by side."
+          class="project-image float-right tilt-img"
+        />
       </div>
 
       <div class="links">
