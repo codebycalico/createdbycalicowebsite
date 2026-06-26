@@ -4,154 +4,154 @@
 */
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  height: 100vh;
+    display: flex;
+    height: 100vh;
 }
 
 .split {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* transition to smooth movement instead of being choppy 
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transition to smooth movement instead of being choppy 
     width is specifying what is being animated. */
-  transition: width 0.4s ease;
+    transition: width 0.4s ease;
 }
 
 /* how much of the page the section that's being hovered on takes up */
 .split:hover {
-  width: 75%;
+    width: 75%;
 }
 
 .split-link {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* make padding around the label so the area around the text is clickable
     instead of just the exact text itself. */
 .split-label {
-  font-size: 3rem;
-  letter-spacing: 0.1em;
-  text-transform: lowercase;
-  transition: transform 0.3s ease;
-  padding: 1.5rem 3rem;
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    transition: transform 0.3s ease;
+    padding: 1.5rem 3rem;
 }
 
 /* how much of the page the section that's being hovered on takes up */
 .split:hover .split-label {
-  transform: scale(1.5);
+    transform: scale(1.5);
 }
 
 /* Photography side — calico warm */
 .photography {
-  /*background-color: #f0ede8;*/
-  background-image: url("photography/images/photo2.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /*border-right: 1px solid #c17f24;*/
-  font-family: "Garamond", serif;
+    /*background-color: #f0ede8;*/
+    background-image: url("photography/images/photo1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*border-right: 1px solid #c17f24;*/
+    font-family: "Garamond", serif;
 }
 
 .photography .split-label {
-  color: #f0ede8;
+    color: #f0ede8;
 }
 
 .photography .split-label span {
-  display: inline-block;
-  transition:
-    transform 0.6s ease,
-    opacity 0.6s ease;
+    display: inline-block;
+    transition:
+        transform 0.6s ease,
+        opacity 0.6s ease;
 }
 
 /* photography header animation */
 .photography .split-label.floating span {
-  animation: floatIn 1.5s ease forwards;
+    animation: floatIn 1.5s ease forwards;
 }
 
 @keyframes floatIn {
-  0% {
-    opacity: 0.3;
-    transform: translateY(10px);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    0% {
+        opacity: 0.3;
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(-14px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Tech side, hacker terminal vibe */
 .tech {
-  background-color: #ea70ec;
-  font-family: "Courier New", monospace;
+    background-color: #ea70ec;
+    font-family: "Courier New", monospace;
 }
 
 .tech .split-label {
-  color: #5ac6ee;
-  text-shadow: 0 0 10px #5ac6ee;
+    color: #5ac6ee;
+    text-shadow: 0 0 10px #5ac6ee;
 }
 
 #tech-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
 .tech {
-  position: relative;
+    position: relative;
 }
 
 /* bring forward on the page, so the link is clickable through the text */
 .tech .split-link {
-  z-index: 1;
+    z-index: 1;
 }
 
 /* add _ blink after "technology"
     this is only called after the JS animation has completed.
     calling of this is controlled in the landing-typewriter.js script */
 .tech .split-label.cursor::after {
-  content: "_";
-  animation: blink 1s step-end infinite;
+    content: "_";
+    animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
 
 /* if viewing on a mobile device, split the screen vertically instead of horizontally */
 @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
+    body {
+        flex-direction: column;
+    }
 
-  .split {
-    width: 100%;
-    height: 50%;
-  }
+    .split {
+        width: 100%;
+        height: 50%;
+    }
 
-  .split:hover {
-    width: 100%;
-    height: 60%;
-  }
+    .split:hover {
+        width: 100%;
+        height: 60%;
+    }
 }

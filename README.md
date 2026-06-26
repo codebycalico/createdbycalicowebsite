@@ -7,5 +7,6 @@ All the files that I use to run and customize my website are here. By keeping ev
 - Getting GitHub Pages set up with a [custom domain](https://www.youtube.com/watch?v=e5AwNU3Y2es).
 - [CSS design](https://cssreference.io/).
 - [HTML cheatsheet](https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf).
+- Instagram API through Meta [documentation](https://developers.facebook.com/documentation/instagram-platform).
 
 Please note: All photos are my own creative works and are protected by copyright. Do not use without explicit permission from me. Please reach out if you'd like to use any photographs as I have my own legal agreement for both parties to sign to allow usage.
