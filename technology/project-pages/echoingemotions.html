@@ -10,163 +10,158 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fabrication</title>
-    <link rel="stylesheet" href="../tech.css" />
-    <style>
-      body {
-        background-image: url("../media/ee/angryOpening.jpg");
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-position: top 60px right;
-        background-size: 50%;
-      }
-      nav {
-        border-bottom: 1px solid #5ac6ee;
-      }
-      nav a {
-        color: #5ac6ee;
-      }
-      nav a:hover {
-        text-shadow: 0 0 8px #5ac6ee;
-      }
-      body {
-        color: #5ac6ee;
-      }
-      h2 {
-        text-shadow: 0 0 10px #5ac6ee;
-      }
-      h3 {
-        color: #5ac6ee;
-      }
-      a {
-        color: #5ac6ee;
-      }
-      footer {
-        border-top: 1px solid #5ac6ee;
-      }
-      .video-card {
-        border: 0px;
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <a href="../projects.html" class="nav-home">← projects</a>
-    </nav>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>fabrication</title>
+        <link rel="stylesheet" href="../tech.css" />
+        <style>
+            body {
+                background-image: url("../media/ee/angryOpening.jpg");
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-position: top 60px right;
+                background-size: 50%;
+            }
+            nav {
+                border-bottom: 1px solid #5ac6ee;
+            }
+            nav a {
+                color: #5ac6ee;
+            }
+            nav a:hover {
+                text-shadow: 0 0 8px #5ac6ee;
+            }
+            body {
+                color: #5ac6ee;
+            }
+            h2 {
+                text-shadow: 0 0 10px #5ac6ee;
+            }
+            h3 {
+                color: #5ac6ee;
+            }
+            a {
+                color: #5ac6ee;
+            }
+            footer {
+                border-top: 1px solid #5ac6ee;
+            }
+            .video-card {
+                border: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="../projects.html" class="nav-home">← projects</a>
+            <a href="../tech.html#about">about</a>
+            <a href="../tech.html#contact">contact</a>
+        </nav>
 
-    <section id="ee">
-      <h2 data-text="echoing emotions"></h2>
-      <div class="video-grid">
-        <div class="video-card">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/-iVACinS6EY?si=LROFhtpU55CCmF1l"
-            title="YouTube video player"
-            frameborder="0"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-              web-share;
-            "
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-          <a
-            href="https://youtu.be/-iVACinS6EY?si=UJvQXkxNlP_oXu6r"
-            target="_blank"
-          >
-            <h3>documentative video.</h3>
-          </a>
-        </div>
-      </div>
-      <div class="project-description">
-        <img
-          src="../media/ee/thumbsUp.png"
-          alt="a person giving a thumbs up to a tv playing a video of horses."
-          class="project-image float-right"
-        />
-        <p>
-          echoing emotions is an interactive project designed for people with no
-          equine experience to gain understanding of how horse's express their
-          emotions, and for experienced equestrians to dive deeper into their
-          relationship with themelves and horses. what started as an educational
-          idea turned into an exploration of how they mirror our emotions back
-          to us and how they reflect their environments, including the emotions
-          of all beings around them.
-        </p>
-        <img
-          src="../media/ee/happyCropped.png"
-          alt="a person giving a thumbs up to a tv playing a video of horses."
-          class="project-image float-right"
-        />
-        <p>
-          i filmed and edited the main looping video that plays until the
-          software is triggered.
-        </p>
-        <p>
-          using mediapipe and opencv, i developed, tested, integrated, and
-          debugged gesture tracking in python. by giving the webcam a thumbs up,
-          it triggers the software to begin facial expression detection, which
-          has a time out for cases of false triggering.
-        </p>
-        <div>
-          <img
-            src="../media/ee/instructions.png"
-            alt=""
-            class="project-image float-left"
-          />
-        </div>
-        <p>
-          using deepface and opencv, i created facial expression detection for
-          three main emotions: happy, sad, and angry. when one of these emotions
-          is detected with reasonable confidence, a cooresponding video is
-          played from an array of videos i filmed.
-        </p>
-        <div>
-          <img
-            src="../media/ee/description.png"
-            alt=""
-            class="project-image float-right"
-          />
-        </div>
-        <p>
-          i created the instructions cards that were able to be taken home as a
-          momento from the experience and the description of the exhibit. this
-          exhibit was particularly close to my heart, as horses are.
-        </p>
-        <img
-          src="../media/ee/TobyChar.png"
-          alt="transparent image of the heads of two american paint quarter horses side by side."
-          class="project-image float-right tilt-img"
-        />
-      </div>
+        <section id="ee">
+            <h2 data-text="echoing emotions"></h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/-iVACinS6EY?si=LROFhtpU55CCmF1l"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="
+                            accelerometer;
+                            autoplay;
+                            clipboard-write;
+                            encrypted-media;
+                            gyroscope;
+                            picture-in-picture;
+                            web-share;
+                        "
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                    <a
+                        href="https://youtu.be/-iVACinS6EY?si=UJvQXkxNlP_oXu6r"
+                        target="_blank">
+                        <h3>documentative video.</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="project-description">
+                <img
+                    src="../media/ee/thumbsUp.png"
+                    alt="a person giving a thumbs up to a tv playing a video of horses."
+                    class="project-image float-right" />
+                <p>
+                    echoing emotions is an interactive project designed for
+                    people with no equine experience to gain understanding of
+                    how horse's express their emotions, and for experienced
+                    equestrians to dive deeper into their relationship with
+                    themelves and horses. what started as an educational idea
+                    turned into an exploration of how they mirror our emotions
+                    back to us and how they reflect their environments,
+                    including the emotions of all beings around them.
+                </p>
+                <img
+                    src="../media/ee/happyCropped.png"
+                    alt="a person giving a thumbs up to a tv playing a video of horses."
+                    class="project-image float-right" />
+                <p>
+                    i filmed and edited the main looping video that plays until
+                    the software is triggered.
+                </p>
+                <p>
+                    using mediapipe and opencv, i developed, tested, integrated,
+                    and debugged gesture tracking in python. by giving the
+                    webcam a thumbs up, it triggers the software to begin facial
+                    expression detection, which has a time out for cases of
+                    false triggering.
+                </p>
+                <div>
+                    <img
+                        src="../media/ee/instructions.png"
+                        alt=""
+                        class="project-image float-left" />
+                </div>
+                <p>
+                    using deepface and opencv, i created facial expression
+                    detection for three main emotions: happy, sad, and angry.
+                    when one of these emotions is detected with reasonable
+                    confidence, a cooresponding video is played from an array of
+                    videos i filmed.
+                </p>
+                <div>
+                    <img
+                        src="../media/ee/description.png"
+                        alt=""
+                        class="project-image float-right" />
+                </div>
+                <p>
+                    i created the instructions cards that were able to be taken
+                    home as a momento from the experience and the description of
+                    the exhibit. this exhibit was particularly close to my
+                    heart, as horses are.
+                </p>
+                <img
+                    src="../media/ee/TobyChar.png"
+                    alt="transparent image of the heads of two american paint quarter horses side by side."
+                    class="project-image float-right tilt-img" />
+            </div>
 
-      <div class="links">
-        <a
-          href="https://github.com/codebycalico/Echoing-Emotions"
-          target="_blank"
-        >
-          <br />
-          <h3>link to project on github.</h3>
-        </a>
-      </div>
-    </section>
+            <div class="links">
+                <a
+                    href="https://github.com/codebycalico/Echoing-Emotions"
+                    target="_blank">
+                    <br />
+                    <h3>link to project on github.</h3>
+                </a>
+            </div>
+        </section>
 
-    <footer>
-      <p>&copy; 2026 created by calico. All rights reserved.</p>
-      <address>
-        contact at: <a href="mailto:info@example.com">info@example.com</a>
-      </address>
-    </footer>
+        <footer>
+            <p>&copy; 2026 created by calico. all rights reserved.</p>
+        </footer>
 
-    <script src="../typewriter.js"></script>
-  </body>
+        <script src="../typewriter.js"></script>
+    </body>
 </html>

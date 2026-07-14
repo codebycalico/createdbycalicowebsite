@@ -1,7 +1,6 @@
 <!--
   calico rose's website - createdbycalico.com
   technology page
-  currently just one page to scroll down, not navigatable to other html documents yet.
 -->
 
 <!doctype html>
@@ -14,11 +13,11 @@
     </head>
     <body>
         <nav>
-            <a href="../index.html" class="nav-home">← home</a>
-            <a href="#projects">projects</a>
+            <a href="../index.html" class="nav-home">← landing page</a>
+            <a href="projects.html">projects</a>
             <a href="#about">about</a>
             <a href="#contact">contact</a>
-            <a href="#blog">blog</a>
+            <!--<a href="#blog">blog</a>-->
         </nav>
 
         <section id="projects">
@@ -57,18 +56,21 @@
                         <span class="tag">mediapipe</span>
                     </div>
                 </a>
-                <a href="project-pages/enterthematrix.html">
+                <a href="project-pages/fairytrail.html">
                     <div class="project-card">
                         <video autoplay loop muted>
                             <source
-                                src="media/etm/enterTheMatric_demo1.mp4"
+                                src="media/ft/fairy_trail0.mp4"
                                 type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
-                        <h3>enter the matrix</h3>
-                        <p>see the world as the matrix live via any web cam.</p>
-                        <span class="tag">python</span>
-                        <span class="tag">opencv</span>
+                        <h3>fairy trail</h3>
+                        <p>
+                            particle system fireworks follow joint from pose
+                            detection.
+                        </p>
+                        <span class="tag">javascript</span>
+                        <span class="tag">pose estimation</span>
                     </div>
                 </a>
             </div>
@@ -93,11 +95,65 @@
             <a href="https://github.com/codebycalico">
                 <p>click here for my github.</p>
             </a>
-            <p>
-                email me at <a href="mailto:you@example.com">you@example.com</a>
-            </p>
+            <form action="thankyou.html" method="POST" id="form">
+                <fieldset>
+                    <legend>contact form</legend>
+                    <input
+                        type="hidden"
+                        name="access_key"
+                        value="ab9c28f1-7012-462d-b65d-8427b6aa4194" />
+                    <input
+                        type="hidden"
+                        name="subject"
+                        value="! tech website submission !" />
+                    <input
+                        type="hidden"
+                        name="redirect"
+                        value="thankyou.html" />
+                    <input
+                        type="checkbox"
+                        name="botcheck"
+                        id=""
+                        style="display: none" />
+                    <div>
+                        <label for="name">full name</label><br />
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="your name"
+                            required />
+                        <br /><br />
+                    </div>
+                    <div>
+                        <label for="email">email address</label><br />
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="you@email.com"
+                            required /><br /><br />
+                    </div>
+                    <div>
+                        <label for="message">your message</label>
+                        <br />
+                        <textarea
+                            rows="5"
+                            name="message"
+                            id="message"
+                            placeholder="your message"
+                            required></textarea
+                        ><br /><br />
+                    </div>
+
+                    <button class="submit_button" type="submit">
+                        send message
+                    </button>
+                </fieldset>
+            </form>
         </section>
 
+        <!--
         <section id="blog">
             <h2 data-text="blog"></h2>
             <div class="blog-list">
@@ -119,15 +175,18 @@
                 </div>
             </div>
         </section>
+        -->
 
         <footer>
-            <p>&copy; 2026 created by calico. All rights reserved.</p>
-            <address>
-                contact at:
-                <a href="mailto:info@example.com">info@example.com</a>
-            </address>
+            <p>&copy; 2026 created by calico. all rights reserved.</p>
         </footer>
 
         <script src="typewriter.js"></script>
+        <script>
+            window.onload = function () {
+                // Reset the form fields when the page loads
+                document.getElementById("form").reset();
+            };
+        </script>
     </body>
 </html>

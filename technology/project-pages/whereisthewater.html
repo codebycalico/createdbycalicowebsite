@@ -7,12 +7,12 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fabrication</title>
-    <link rel="stylesheet" href="../tech.css" />
-    <!--<style>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>fabrication</title>
+        <link rel="stylesheet" href="../tech.css" />
+        <!--<style>
       body {
         background-image: url("../media/wiw/wiw_img.jpg");
         background-repeat: no-repeat;
@@ -21,119 +21,120 @@
         background-size: 15%;
       }
     </style> -->
-  </head>
-  <body>
-    <nav>
-      <a href="../projects.html" class="nav-home">← projects</a>
-    </nav>
+    </head>
+    <body>
+        <nav>
+            <a href="../projects.html" class="nav-home">← projects</a>
+            <a href="../tech.html#about">about</a>
+            <a href="../tech.html#contact">contact</a>
+        </nav>
 
-    <section id="wiw">
-      <h2 data-text="where is the water"></h2>
-      <div class="video-grid">
-        <div class="video-card">
-          <video controls>
-            <source
-              src="../media/wiw/KATU2abc_newscoverage - Trim.mp4"
-              type="video/mp4"
-            />
-            your browser does not support the video tag.
-          </video>
-          <a
-            href="https://katu.com/amnw/am-northwest-lifestyle-health/omsi-set-to-open-the-nancy-stueber-natural-sciences-hall"
-            target="_blank"
-          >
-            <h3>coverage by KATU ABC 2.</h3>
-          </a>
-        </div>
+        <section id="wiw">
+            <h2 data-text="where is the water"></h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <video controls>
+                        <source
+                            src="../media/wiw/KATU2abc_newscoverage - Trim.mp4"
+                            type="video/mp4" />
+                        your browser does not support the video tag.
+                    </video>
+                    <a
+                        href="https://katu.com/amnw/am-northwest-lifestyle-health/omsi-set-to-open-the-nancy-stueber-natural-sciences-hall"
+                        target="_blank">
+                        <h3>coverage by KATU ABC 2.</h3>
+                    </a>
+                </div>
 
-        <div class="video-card">
-          <video controls poster="../media/wiw/KGWcover.png">
-            <source src="../media/wiw/KGW_news - Trim.mp4" type="video/mp4" />
-            your browser does not support the video tag.
-          </video>
-          <a
-            href="https://www.kgw.com/video/tech/science/climate-change/permanent-omsi-exhibit-spotlights-climate-change/283-d178fcf8-c3a0-49bd-a638-aecc19a0a146"
-            target="_blank"
-          >
-            <h3>coverage by KWG 8.</h3>
-          </a>
-        </div>
-      </div>
-      <div class="project-description">
-        <img
-          src="../media/wiw/wiw_pic.png"
-          alt="the sandbox with depth mapped projection. the highest point is white, then goes to red, orange, yellow, green, and blue as the lowest point."
-          class="project-image float-right"
-        />
-        <p>
-          where is the water is a custom augmented reality sandbox built upon
-          SensiLab's open source Unity software that projects depth data onto
-          the sandbox's surface. A Kinect v2 and projector are stationed above
-          the sandbox. the Kinect detects the depth of the sandbox in real time
-          as visitors interact with it and the projector displays the live,
-          textured feed over the sandbox to mimic mountains and valleys, rivers
-          and lakes, that are created by the visitors.
-        </p>
-        <p>
-          the interactive sandbox was customized for visitors to use a circular
-          tool to create rainfall over the projected landscape and have a button
-          to evaporate the accumulated rain, simulating a drought.
-        </p>
-        <p>
-          using opencv and c#, i developed, tested, integrated, and debugged
-          circle tracking software to trigger rainfall.
-        </p>
-        <img
-          src="../media/wiw/wiw_circuitBoard.png"
-          alt="the circuit board used for where is the water, which components for two buttons, an led strip, 5v power, and 12v power."
-          class="project-image float-left tilt-img"
-        />
-        <p>
-          using heavyM and spout, i mapped the projection to the custom shape of
-          the sandbox.
-        </p>
-        <p>
-          using c++ and platformio, i developed the firmware for a simple button
-          that triggered the drought.
-        </p>
-        <p>
-          using Autodesk Fusion, i designed and manufactured the circuit board,
-          which included areas for an extra button and leds, in case the exhibit
-          needed to incorporate more features in the future.
-        </p>
+                <div class="video-card">
+                    <video controls poster="../media/wiw/KGWcover.png">
+                        <source
+                            src="../media/wiw/KGW_news - Trim.mp4"
+                            type="video/mp4" />
+                        your browser does not support the video tag.
+                    </video>
+                    <a
+                        href="https://www.kgw.com/video/tech/science/climate-change/permanent-omsi-exhibit-spotlights-climate-change/283-d178fcf8-c3a0-49bd-a638-aecc19a0a146"
+                        target="_blank">
+                        <h3>coverage by KWG 8.</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="project-description">
+                <img
+                    src="../media/wiw/wiw_pic.png"
+                    alt="the sandbox with depth mapped projection. the highest point is white, then goes to red, orange, yellow, green, and blue as the lowest point."
+                    class="project-image float-right" />
+                <p>
+                    where is the water is a custom augmented reality sandbox
+                    built upon SensiLab's open source Unity software that
+                    projects depth data onto the sandbox's surface. A Kinect v2
+                    and projector are stationed above the sandbox. the Kinect
+                    detects the depth of the sandbox in real time as visitors
+                    interact with it and the projector displays the live,
+                    textured feed over the sandbox to mimic mountains and
+                    valleys, rivers and lakes, that are created by the visitors.
+                </p>
+                <p>
+                    the interactive sandbox was customized for visitors to use a
+                    circular tool to create rainfall over the projected
+                    landscape and have a button to evaporate the accumulated
+                    rain, simulating a drought.
+                </p>
+                <p>
+                    using opencv and c#, i developed, tested, integrated, and
+                    debugged circle tracking software to trigger rainfall.
+                </p>
+                <img
+                    src="../media/wiw/wiw_circuitBoard.png"
+                    alt="the circuit board used for where is the water, which components for two buttons, an led strip, 5v power, and 12v power."
+                    class="project-image float-left tilt-img" />
+                <p>
+                    using heavyM and spout, i mapped the projection to the
+                    custom shape of the sandbox.
+                </p>
+                <p>
+                    using c++ and platformio, i developed the firmware for a
+                    simple button that triggered the drought.
+                </p>
+                <p>
+                    using Autodesk Fusion, i designed and manufactured the
+                    circuit board, which included areas for an extra button and
+                    leds, in case the exhibit needed to incorporate more
+                    features in the future.
+                </p>
 
-        <div class="hover-img">
-          <img
-            src="../media/wiw/wiw_instructions.png"
-            alt="a graphic displaying a user holding a stick with a circle on the end to trigger rain over the mountain created in the augmented reality sandbox."
-            class="project-image lisa-graphic"
-          />
-          <div class="overlay">
-            <a href="https://www.lisaclinedesign.com" target="_blank">
-              <div class="overlay-text">graphic by Lisa Cline</div>
-            </a>
-          </div>
-        </div>
-      </div>
+                <div class="hover-img">
+                    <img
+                        src="../media/wiw/wiw_instructions.png"
+                        alt="a graphic displaying a user holding a stick with a circle on the end to trigger rain over the mountain created in the augmented reality sandbox."
+                        class="project-image lisa-graphic" />
+                    <div class="overlay">
+                        <a
+                            href="https://www.lisaclinedesign.com"
+                            target="_blank">
+                            <div class="overlay-text">
+                                graphic by Lisa Cline
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-      <div class="links">
-        <a
-          href="https://github.com/codebycalico/Is-Mo-Back-Ups/tree/main/Natural%20Back%20Ups/Where%20is%20the%20Water"
-          target="_blank"
-        >
-          <br />
-          <h3>link to project on github.</h3>
-        </a>
-      </div>
-    </section>
+            <div class="links">
+                <a
+                    href="https://github.com/codebycalico/Is-Mo-Back-Ups/tree/main/Natural%20Back%20Ups/Where%20is%20the%20Water"
+                    target="_blank">
+                    <br />
+                    <h3>link to project on github.</h3>
+                </a>
+            </div>
+        </section>
 
-    <footer>
-      <p>&copy; 2026 created by calico. All rights reserved.</p>
-      <address>
-        contact at: <a href="mailto:info@example.com">info@example.com</a>
-      </address>
-    </footer>
+        <footer>
+            <p>&copy; 2026 created by calico. all rights reserved.</p>
+        </footer>
 
-    <script src="../typewriter.js"></script>
-  </body>
+        <script src="../typewriter.js"></script>
+    </body>
 </html>

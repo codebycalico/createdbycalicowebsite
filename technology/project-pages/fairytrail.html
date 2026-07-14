@@ -1,0 +1,71 @@
+<!--
+  calico rose's website - createdbycalico.com
+  fakiry trail project page
+-->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>fabrication</title>
+        <link rel="stylesheet" href="../tech.css" />
+    </head>
+    <body>
+        <nav>
+            <a href="../projects.html" class="nav-home">← projects</a>
+            <a href="../tech.html#projects">projects</a>
+            <a href="../tech.html#about">about</a>
+            <a href="../tech.html#contact">contact</a>
+        </nav>
+
+        <section id="ft">
+            <h2 data-text="fairy trail"></h2>
+            <video width="640" height="580" autoplay loop muted>
+                <source src="../media/ft/fairy_trail1.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="project-description">
+                <p>
+                    fairy trail uses webcam feed to detect a person or persons
+                    in the area and creates a particle system trail that follows
+                    them around. the code uses pose estimation and follows the
+                    first confident joing that it finds.
+                </p>
+                <p>
+                    when no one is in the frame, it creates an explosion of
+                    particle systems like fireworks. this "idle" state continues
+                    until it detects someone in the frame. each time a person is
+                    detected, it assigns a random hue to the trail for that
+                    body.
+                </p>
+                <p>
+                    allow camera use to try right here! (give it a minute to
+                    load once you hit allow)
+                </p>
+                <div
+                    id="fairy-trail-container"
+                    style="width: 100%; height: 500px"></div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.min.js"></script>
+                <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+                <script src="../media/ft/fairy-trail.js"></script>
+            </div>
+
+            <div class="links">
+                <a
+                    href="https://github.com/codebycalico/FairyTrail-p5js"
+                    target="_blank">
+                    <br />
+                    <h3>link to project on github.</h3>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 created by calico. all rights reserved.</p>
+        </footer>
+
+        <script src="../typewriter.js"></script>
+    </body>
+</html>
