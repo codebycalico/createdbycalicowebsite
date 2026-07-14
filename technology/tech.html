@@ -6,107 +6,128 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fabrication</title>
-    <link rel="stylesheet" href="tech.css" />
-  </head>
-  <body>
-    <nav>
-      <a href="../index.html" class="nav-home">← home</a>
-      <a href="#projects">projects</a>
-      <a href="#about">about</a>
-      <a href="#contact">contact</a>
-      <a href="#blog">blog</a>
-    </nav>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>fabrication</title>
+        <link rel="stylesheet" href="tech.css" />
+    </head>
+    <body>
+        <nav>
+            <a href="../index.html" class="nav-home">← home</a>
+            <a href="#projects">projects</a>
+            <a href="#about">about</a>
+            <a href="#contact">contact</a>
+            <a href="#blog">blog</a>
+        </nav>
 
-    <section id="projects">
-      <div class="projects-header">
-        <h2 data-text="projects"></h2>
-        <a href="projects.html" class="projects-page">more projects →</a>
-      </div>
-      <div class="project-grid">
-        <a href="project-pages/whereisthewater.html">
-          <div class="project-card">
-            <img
-              src="media/wiw/wiw_thumb.png"
-              alt="augmented reality sandbox with projected depth mapped data onto the sand in the box. coordinating colors cover the different heights of sand."
-            />
-            <h3>where is the water</h3>
+        <section id="projects">
+            <div class="projects-header">
+                <h2 data-text="projects"></h2>
+                <a href="projects.html" class="projects-page"
+                    >more projects →</a
+                >
+            </div>
+            <div class="project-grid">
+                <a href="project-pages/whereisthewater.html">
+                    <div class="project-card">
+                        <img
+                            src="media/wiw/wiw_thumb.png"
+                            alt="augmented reality sandbox with projected depth mapped data onto the sand in the box. coordinating colors cover the different heights of sand." />
+                        <h3>where is the water</h3>
+                        <p>
+                            augmented reality sandbox with circle detection and
+                            projection mapping.
+                        </p>
+                        <span class="tag">unity | csharp</span>
+                        <span class="tag">kinect v2.0</span>
+                    </div>
+                </a>
+                <a href="project-pages/echoingemotions.html">
+                    <div class="project-card">
+                        <img
+                            src="media/ee/happyCropped.png"
+                            alt="a person holding an instruction card, standing in front of a tv playing a video of a horse." />
+                        <h3>echoing emotions</h3>
+                        <p>
+                            video interaction with facial expression and gesture
+                            detection.
+                        </p>
+                        <span class="tag">deepface</span>
+                        <span class="tag">mediapipe</span>
+                    </div>
+                </a>
+                <a href="project-pages/enterthematrix.html">
+                    <div class="project-card">
+                        <video autoplay loop muted>
+                            <source
+                                src="media/etm/enterTheMatric_demo1.mp4"
+                                type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <h3>enter the matrix</h3>
+                        <p>see the world as the matrix live via any web cam.</p>
+                        <span class="tag">python</span>
+                        <span class="tag">opencv</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 data-text="about me"></h2>
             <p>
-              augmented reality sandbox with circle detection and projection
-              mapping.
+                after getting a degree in music and sonic arts, calico's love
+                for numbers and language led her down the path to a bachelor's
+                in computer science. her interest in computer vision created
+                many projects that incorporate live interation into her
+                software.
             </p>
-            <span class="tag">unity | csharp</span>
-            <span class="tag">kinect v2.0</span>
-          </div>
-        </a>
-        <a href="project-pages/echoingemotions.html">
-          <div class="project-card">
-            <img
-              src="media/ee/happyCropped.png"
-              alt="a person holding an instruction card, standing in front of a tv playing a video of a horse."
-            />
-            <h3>echoing emotions</h3>
+        </section>
+
+        <section id="contact">
+            <h2 data-text="contact"></h2>
+            <a href="https://www.linkedin.com/in/calico-rose/">
+                <p>click here for my linkedin.</p>
+            </a>
+            <a href="https://github.com/codebycalico">
+                <p>click here for my github.</p>
+            </a>
             <p>
-              video interaction with facial expression and gesture detection.
+                email me at <a href="mailto:you@example.com">you@example.com</a>
             </p>
-            <span class="tag">opencv</span>
-            <span class="tag">python</span>
-          </div>
-        </a>
-        <div class="project-card">
-          <img src="media/project3.jpg" alt="photo3 alt text" />
-          <h3>title</h3>
-          <p>description</p>
-          <span class="tag">python</span>
-          <span class="tag">computer vision</span>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="about">
-      <h2 data-text="about me"></h2>
-      <p>about me</p>
-    </section>
+        <section id="blog">
+            <h2 data-text="blog"></h2>
+            <div class="blog-list">
+                <div class="blog-post">
+                    <span class="post-date">2026-05-21</span>
+                    <h3>post title</h3>
+                    <p>
+                        short intro paragraph for this post. Click to read more.
+                    </p>
+                    <a href="#">read more →</a>
+                </div>
+                <div class="blog-post">
+                    <span class="post-date">2026-04-10</span>
+                    <h3>post title</h3>
+                    <p>
+                        short intro paragraph for this post. Click to read more.
+                    </p>
+                    <a href="#">read more →</a>
+                </div>
+            </div>
+        </section>
 
-    <section id="contact">
-      <h2 data-text="contact"></h2>
-      <a href="https://www.linkedin.com/in/calico-rose/">
-        <p>click here for my linkedin.</p>
-      </a>
-      <a href="https://github.com/codebycalico">
-        <p>click here for my github.</p>
-      </a>
-      <p>email me at <a href="mailto:you@example.com">you@example.com</a></p>
-    </section>
+        <footer>
+            <p>&copy; 2026 created by calico. All rights reserved.</p>
+            <address>
+                contact at:
+                <a href="mailto:info@example.com">info@example.com</a>
+            </address>
+        </footer>
 
-    <section id="blog">
-      <h2 data-text="blog"></h2>
-      <div class="blog-list">
-        <div class="blog-post">
-          <span class="post-date">2026-05-21</span>
-          <h3>post title</h3>
-          <p>short intro paragraph for this post. Click to read more.</p>
-          <a href="#">read more →</a>
-        </div>
-        <div class="blog-post">
-          <span class="post-date">2026-04-10</span>
-          <h3>post title</h3>
-          <p>short intro paragraph for this post. Click to read more.</p>
-          <a href="#">read more →</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>&copy; 2026 created by calico. All rights reserved.</p>
-      <address>
-        contact at: <a href="mailto:info@example.com">info@example.com</a>
-      </address>
-    </footer>
-
-    <script src="typewriter.js"></script>
-  </body>
+        <script src="typewriter.js"></script>
+    </body>
 </html>

@@ -1,0 +1,94 @@
+<!--
+  calico rose's website - createdbycalico.com
+  enter the matrix project page
+  Video loop autoplay reference:
+        Source - https://stackoverflow.com/a/10415231
+        Posted by LONGI, modified by community. See post 'Timeline' for change history
+        Retrieved 2026-07-13, License - CC BY-SA 4.0
+-->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>fabrication</title>
+        <link rel="stylesheet" href="../tech.css" />
+        <style>
+            body {
+            }
+            nav {
+                border-bottom: 1px solid #00ff41;
+            }
+            nav a {
+                color: #00ff41;
+            }
+            nav a:hover {
+                text-shadow: 0 0 8px #008f11;
+            }
+            body {
+                color: #00ff41;
+            }
+            h2 {
+                text-shadow: 0 0 10px #00ff41;
+            }
+            h3 {
+                color: #00ff41;
+            }
+            a {
+                color: #00ff41;
+            }
+            footer {
+                border-top: 1px solid #008f11;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="../projects.html" class="nav-home">← projects</a>
+        </nav>
+
+        <section id="etm">
+            <h2 data-text="enter the matrix"></h2>
+            <video width="640" height="580" autoplay loop muted>
+                <source
+                    src="../media/etm/enterTheMatric_demo.mp4"
+                    type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="project-description">
+                <p>
+                    enter the matrix is a python project that allows the user to
+                    translate their world into the symbols of the matrix. this
+                    project works with any camera, even the most basic of
+                    webcams.
+                </p>
+                <p>
+                    using opencv's canny line detection, i replaced the edges
+                    found with numbers and symbols, adjusting the brightness
+                    along the detected lines.
+                </p>
+            </div>
+
+            <div class="links">
+                <a
+                    href="https://github.com/codebycalico/Enter_The_Matrix"
+                    target="_blank">
+                    <br />
+                    <h3>link to project on github.</h3>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 created by calico. All rights reserved.</p>
+            <address>
+                contact at:
+                <a href="mailto:info@example.com">info@example.com</a>
+            </address>
+        </footer>
+
+        <script src="../typewriter.js"></script>
+    </body>
+</html>
