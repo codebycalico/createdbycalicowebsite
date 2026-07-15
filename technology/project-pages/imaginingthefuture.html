@@ -1,0 +1,104 @@
+<!--
+  calico rose's website - createdbycalico.com
+  enter the matrix project page
+  Video loop autoplay reference:
+        Source - https://stackoverflow.com/a/10415231
+        Posted by LONGI, modified by community. See post 'Timeline' for change history
+        Retrieved 2026-07-13, License - CC BY-SA 4.0
+-->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>fabrication</title>
+        <link rel="stylesheet" href="../tech.css" />
+        <style>
+            nav {
+                border-bottom: 1px solid #5ac6ee;
+            }
+            nav a {
+                color: #5ac6ee;
+            }
+            nav a:hover {
+                text-shadow: 0 0 8px #5ac6ee;
+            }
+            body {
+                color: #5ac6ee;
+            }
+            h2 {
+                text-shadow: 0 0 10px #5ac6ee;
+            }
+            h3 {
+                color: #5ac6ee;
+            }
+            a {
+                color: #5ac6ee;
+            }
+            footer {
+                border-top: 1px solid #5ac6ee;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="../projects.html" class="nav-home">← projects</a>
+            <a href="../tech.html#about">about</a>
+            <a href="../tech.html#contact">contact</a>
+        </nav>
+
+        <section id="etm">
+            <h2 data-text="imagining the future"></h2>
+            <video width="640" height="580" autoplay loop muted>
+                <source src="../media/itf/imagining.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="project-description">
+                <p>
+                    imagining the future is an interactive exhibit for visitors
+                    to draw or write something and have it float around with
+                    other projected submissions from visitors. the prompt of the
+                    exhibit was "What is your hope for our planet and our
+                    future?" but the submissions were uncensored (though
+                    monitored, as it was on display in a children's museum).
+                </p>
+                <img
+                    src="../media/itf/itf1.jpeg"
+                    alt="a touchscreen drawing program in front of a large projection screen."
+                    class="project-image float-right" />
+                <p>
+                    using processing, i created two separate sketches. the first
+                    was the completely custom drawing program and the second was
+                    the projection sketch. with an experimental sketch from
+                    torb-no's github (credited in the code), i was able to
+                    encode and send the image submitted from the custom drawing
+                    sketch (the client), then recieve and decode the image to be
+                    displayed in the projecting sketch (the server). the sketch
+                    is also able to switch between spanish and english at
+                    anytime to welcome more visitors.
+                </p>
+                <p>
+                    the submitted drawings were saved to and pulled from a
+                    google drive folder to be able to monitor the submissions.
+                </p>
+            </div>
+
+            <div class="links">
+                <a
+                    href="https://github.com/codebycalico/Voces-Imagining-The-Future"
+                    target="_blank">
+                    <br />
+                    <h3>link to project on github.</h3>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 created by calico. all rights reserved.</p>
+        </footer>
+
+        <script src="../typewriter.js"></script>
+    </body>
+</html>

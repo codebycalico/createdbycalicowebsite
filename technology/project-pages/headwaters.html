@@ -1,0 +1,115 @@
+<!--
+  calico rose's website - createdbycalico.com
+  headwaters project page
+-->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>fabrication</title>
+        <link rel="stylesheet" href="../tech.css" />
+        <style>
+            nav {
+                border-bottom: 1px solid #5ac6ee;
+            }
+            nav a {
+                color: #5ac6ee;
+            }
+            nav a:hover {
+                text-shadow: 0 0 8px #5ac6ee;
+            }
+            body {
+                color: #5ac6ee;
+            }
+            h2 {
+                text-shadow: 0 0 10px #5ac6ee;
+            }
+            h3 {
+                color: #5ac6ee;
+            }
+            a {
+                color: #5ac6ee;
+            }
+            footer {
+                border-top: 1px solid #5ac6ee;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="../projects.html" class="nav-home">← projects</a>
+            <a href="../tech.html#about">about</a>
+            <a href="../tech.html#contact">contact</a>
+        </nav>
+
+        <section id="etm">
+            <h2 data-text="headwaters"></h2>
+            <img
+                src="../media/hw/hw2.jpeg"
+                alt="a wooden box, the top is color coded by height with buttons and streams of leds, a slot for a reciept paper to be printed is visible on the front side of the box."
+                class="project-image float-right" />
+
+            <div class="project-description">
+                <p>
+                    headwaters was created at the oregon museum of science and
+                    industry through their fellowship program. it's purpose is
+                    to inform visitors about the isotope levels in water as the
+                    evelation and seasons change. it is a facilitated exhibit,
+                    meaning there is an educator informing the visitors about
+                    the experience.
+                </p>
+                <img
+                    src="../media/hw/hw_proto.jpeg"
+                    alt="a prototype of the project, a large piece of cardboard with buttons in it and penciled in streams and rivers."
+                    class="project-image float-left" />
+                <p>
+                    this project incorporates buttons, an led strip divided via
+                    the code into separate arrays to simulate separate streams
+                    and rivers, a dial to change the weather / season, and a
+                    thermal printer. the printer outputs the isotope information
+                    for a specific area on the map (chosen by the buttons) that
+                    coorelates to different elevations and landscapes depending
+                    on the climate (chosen via the dial).
+                </p>
+                <img
+                    src="../media/hw/hw_board.jpeg"
+                    alt="a populated custom circuit board."
+                    class="project-image float-right" />
+                <p>
+                    after recieving the information that the graduate student
+                    wanted to be included in the exhibit, i designed a prototype
+                    of the piece to be created and cut by fabricators. using
+                    c++, platformio, and a teensy 4.0, i developed the software
+                    and firmware for the exhibit as well as designed and
+                    populated the custom circuit board.
+                </p>
+                <p>
+                    each stream and river has it's own individual color assigned
+                    based on the climate setting to coorespond with the amount
+                    of water in that season.
+                </p>
+                <img
+                    src="../media/hw/hw3.jpeg"
+                    alt="the unfinished project, the box is open to show the wires and circuit board inside of the project, the led strip is shown as the top cover is off."
+                    class="project-image float-left horizontal" />
+            </div>
+
+            <div class="links">
+                <a
+                    href="https://github.com/OMSI-Dev/Headwaters"
+                    target="_blank">
+                    <br />
+                    <h3>link to project on github.</h3>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 created by calico. all rights reserved.</p>
+        </footer>
+
+        <script src="../typewriter.js"></script>
+    </body>
+</html>
