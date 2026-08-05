@@ -337,6 +337,13 @@ footer {
             margin-left: 0;
         }
     }
+    .image-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-row img {
+        width: 100%;
+    }
 }
 
 /* contact form */
@@ -358,4 +365,71 @@ button {
 .submit_button {
     padding: 5px;
     background-color: #5ac6ee;
+}
+
+/* Lightbox style */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    filter: none;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    color: #f0ede8;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    color: #00ff41;
+}
+
+ul {
+    line-height: 1.6;
+}
+
+.step-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #5ac6ee;
+    line-height: 1.5;
+}
+
+code {
+    line-height: 1.3rem;
+    color: #5ac6ee;
+}
+
+.image-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.image-row img {
+    width: 45%;
 }

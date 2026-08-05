@@ -1,0 +1,459 @@
+<!--
+  calico rose's website - createdbycalico.com
+  headwaters project page
+-->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>fabrication</title>
+        <link rel="stylesheet" href="../../tech.css" />
+    </head>
+
+    <body>
+        <nav>
+            <a href="../../tech.html" class="nav-home"
+                >← back to tecnhology page</a
+            >
+            <a href="../../tech.html#about">about</a>
+            <a href="../../tech.html#contact">contact</a>
+        </nav>
+
+        <section id="blog">
+            <h2
+                data-text="custom yocto image on raspberry pi 0 w with wifi and camera capability" style="color:#5ac6ee"></h2>
+            <div class="project-description">
+                <p>
+                    this project began as a way to get experience with core
+                    embedded Linux and camera interfacing. through trial and
+                    error, bitbake after bitbake, i finally was able to
+                    create a working recipe for my Yocto image with wifi and camera interfacing. i created this step by step tutorial in
+                    hopes of helping someone else do a similar (or same)
+                    project!<br/>the photos and screenshots in this blog are clickable to enlarge! i hope they can help clarify if there is any confusion in the written instruction.
+                </p>
+                <img
+                    src="media/setup_nobck.png"
+                    alt="photo of raspberry pi 0 w connected to camera module v3 and usb to ttl adapter."
+                    class="project-image float-left tilt-img zoomable" />
+                <p class="step-title">what you'll need:</p>
+                <p>
+                <ul>
+                    <li>raspberry pi 0 w</li>
+                    <li>power cable for raspberry pi 0 w</li>
+                    <li>
+                        raspberry pi camera module, either IMX219 (v2) or IMX708
+                        (v3)
+                    </li>
+                    <li>USB to TTL adapter</li>
+                    <li>
+                        three female to female wires (OR six female to male
+                        wires, using a breadboard to connect them in the middle.
+                        i did this before i got female to female wires and it
+                        looked janky but it worked!)
+                    </li>
+                    <li>
+                        host machine running Linux (i used Ubuntu (26.04 LTS) after trying
+                        on Mint without success, i cannot attest to other
+                        distros)
+                    </li>
+                    <li>microSD card for raspberry pi 0 w</li>
+                </ul>
+                </p>
+                <section id="step1">
+                    <p class="step-title">step one<br/>install dependencies and build system</p>
+                    <p>install all the necessary libraries and dependencies on the Linux host machine, then clone the Yocto build system (poky) via git. in termal, run the following commands:</p>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <code>sudo apt update</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>sudo add-apt-repository universe</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>sudo apt update</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1 libsdl1.2-dev pylint xterm python3-subunit mesa-common-dev zstd lz4 file locales</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>sudo locale-gen en_US.UTF-8</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>git clone -b scarthgap https://git.yoctoproject.org/poky</code>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <div class="image-row">
+                        <img
+                            src="media/step1_1.png"
+                            alt="screenshot from linux's terminal showing the output of the commands listed in step one."
+                            class="project-image zoomable"/>
+                        <img
+                            src="media/step1_2.png"
+                            alt="screenshot from linux's terminal showing the output of the commands listed in step one."
+                            class="project-image zoomable"/>
+                    </div>
+                    <p>for my distro and version of linux, i tried the kirkstone release first with no success and ended up using the scarthgap release.</p>
+                </section>
+
+                <section id="step2">
+                    <p class="step-title">step two<br/>clone necessary layers and initialize build environment</p>
+                    <p>inside the newly cloned poky directory, clone the raspberry pi USB layer and the open-embedded layer, necessary for libcamera and v4l-utils. run the commands:</p>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <code>cd poky</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>git clone -b scarthgap https://git.yoctoproject.org/meta-raspberrypi</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>git clone -b scarthgap https://git.openembedded.org/meta-openembedded</code>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <p>next, initialize the build environment. still inside the poky directory, run:</p>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <code>source oe-init-build-env</code>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <p>this drops you into the new directory poky/build and generates the configuration files local.conf and bblayers.conf in the directory poky/build/conf</p>
+                    <div class="image-row">
+                        <img
+                            src="media/step2.png"
+                            alt="screenshot from linux's terminal showing the output of the commands listed in step two."
+                            class="project-image float-right zoomable" />
+                    </div>
+                </section>
+
+                <section id="step3">
+                    <p class="step-title">step three<br/>bake the cloned layers and create a custom layer to bake</p>
+                    <p>still inside poky/build, bake the layers we cloned. there is no confirmation message when adding the layers, so no message = all good! run:</p>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <code>bitbake-layers add-layer ../meta-raspberry-pi</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>bitbake-layers add-layer ../meta-openembedded/meta-oe</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>bitbake-layers add-layer ../meta-openembedded/meta-python</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>bitbake-layers add-layer ../meta-openembedded/meta-multimedia</code>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <p>create a custom layer to support wifi and camera inferfacing, as well as for any future customizations, and bake the custom layer. Yocto's built in tool for creating layers automatically creates the standard layer structure, with conf/layer.conf, recipes-example/, COPYING.MIT, and README. still in poky/build, run:</p>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <code>bitbake-layers create-layer ../meta-mylayer</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>bitbake-layers add-layer ../meta-mylayer</code>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <p>confirm all layers were added:</p>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <code>bitbake-layers show-layers</code>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <div class="image-row">
+                        <img
+                            src="media/step3.png"
+                            alt="screenshot from linux's terminal showing the output of the commands listed in step three."
+                            class="project-image float-right zoomable" />
+                    </div>
+                </section>
+
+                <section id="step4">
+                    <p class="step-title">step four<br/>add kernel configuration for wifi</p>
+                    <p>create the configuration files for wifi capabilities in the custom layer. run:</p>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <code>mkdir -p ~/poky/meta-mylayer/recipes-kernel/linux/linux-raspberrypi</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>cat > ~poky/meta-mylayer/recipes-kernel/linux/linux-raspberrypi/wifi.cfg << 'EOF'<br/>
+                    CONFIG_CFG80211=m<br/>
+                    CONFIG_MMC=y<br/>
+                    CONFIG_MMC_SDHCI=y<br/>
+                    CONFIG_MMC_SDHCI_PLTFM=y<br/>
+                    CONFIG_BRCMFMAC=m<br/>
+                    CONFIG_BRCMFMAC_WCC=m<br/>
+                    CONFIG_BRCMFMAC_SDIO=y<br/>
+                    EOF</code>
+                    <hr style="width:10%; color:#5ac6ee ">
+                    <code>cat > ~poky/meta-mylayer/recipes-kernel/linux/linux-raspberrypi_%.bbappend << 'EOF'<br/>
+                    FILESEXTRAPATHS:prepend:="${THISDIR}/${PN}:"<br/>
+                    SRC_URI:append="file://wifi.cfg"<br/>
+                    EOF</code>
+                    <hr style="width:90%; color:#5ac6ee ">
+                    <div class="image-row">
+                        <img
+                            src="media/step4.png"
+                            alt="screenshot from linux's terminal showing the output of the commands listed in step four."
+                            class="project-image float-right zoomable" />
+                    </div>
+                </section>
+
+            <section id="step5">
+                <p class="step-title">step five<br/>edit local configuration file</p>
+                <p>still in the poky/build directory, run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>vim conf/local.conf</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>find the line that says MACHINE and set the target machine:<br/>MACHINE="raspberrypi0-wifi"</p>
+                <p>create a new line to set a limit on the maximum number of concurrent tasks that bitbake will execute. 
+                my system (2011 MacBook Air) failed at 4 and would only work with 2. if you're on a newer system, 4 may work, or you may not have to set a limit at all. 
+                2 is the most conservative number of consecutive tasks, but i would say it's safe to set it at 4 and see if your machine can do that because it will take significantly less time.
+                learning the right number for your machine is just trial and error; the worst thing it will do is fail and you'll have to come back to this step and adjust the number. 
+                after the line setting the target machine, add:<br/>
+                <span style="color: #5ac6ee">BB_NUMBER_THREADS="2"<br/>
+                PARALLEL_MAKE="-j 2"</span></p>
+                <p>enable UART / serial communication. at the bottom of the local.conf file, add:<br/>
+                <span style="color: #5ac6ee">ENABLE_UART="1"</span></p>
+                <p>enable I2C. under the line enabling UART, add:<br/>
+                <span style="color: #5ac6ee">ENABLE_I2C="1"</span></p>
+                <p>enable camera use. i used the raspberry pi camera module v3, IMX708 sensor, but the line can easily be changed to use the v2 IMX219 sensor. after the line to enable I2C, add:<br/>
+                <span style="color: #5ac6ee">RASPBERRYPI_CAMERA_V3="1"</span><br/>
+                or, if using v2:<br/>
+                <span style="color: #5ac6ee">RASPBERRYPI_CAMERA_V2="1"</span></p>
+                <p>add camera and wifi support modules and libraries. after the camera setting line, add:<br/>
+                <span style="color: #5ac6ee">IMAGE_INSTALL:append="linux-firmware-rpidistro-bcm43430 wpa-supplicant v4l-utils libcamera kernel-module-brcmfmac kernel-module-brcmfmac-wcc kernel-module-bcm2835-unicam i2c-tools imx708"</span><br/>
+                if using camera module v2, change "imx708" to "imx219".</p>
+                <p>add accepted flags and modules to force to autoload. after IMAGE_INSTALL, add lines:<br/>
+                <span style="color: #5ac6ee">LICENSE_FLAGS_ACCEPTED="synaptics-killswitch"<br/>
+                KERNEL_MODULE_AUTOLOAD+="brcmfmac bcm2835-unicam i2c-dev imx708"</span><br/>
+                again, if usng camera module v2, change "imx708" to "imx219".</p>
+                <div class="image-row">
+                    <img
+                        src="media/step5_2.png"
+                        alt="screenshot from linux's terminal showing the edits made in vim listed in step five."
+                        class="project-image float-right zoomable" />
+                    <img
+                        src="media/step5_3v3.png"
+                        alt="screenshot from linux's terminal showing the edits made in vim listed in step five."
+                        class="project-image float-right zoomable" />
+                </div>
+            </section>
+
+            <section id="step6">
+                <p class="step-title">step six<br/>build the image!</p>
+                <p>we're ready to build the minimal image! inside the poky/build folder, run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>bitbake core-image-minimal</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>expect this to take a few hours on the first build. mine literally took about SEVEN hours. subsequent builds will take less time.</p>
+                <div class="image-row">
+                    <img
+                        src="media/step6_1.png"
+                        alt="screenshot from linux's terminal showing the output of the commands listed in step six as the minimal image builds, part one."
+                        class="project-image float-right zoomable" />
+                    <img
+                        src="media/step6_2.png"
+                        alt="screenshot from linux's terminal showing the output of the commands listed in step six as the minimal image builds, part two."
+                        class="project-image float-right zoomable" />
+                    <img
+                        src="media/step6_3.png"
+                        alt="screenshot from linux's terminal showing the output of the commands listed in step six as the minimal image builds, part three."
+                        class="project-image float-right zoomable" />
+                </div>
+                <br/>
+            </section>
+
+            <section id="step7">
+                <p class="step-title">step seven<br/>locate the image and decompress</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>cd ~/poky/build/tmp/deploy/images/raspberrypi0-wifi/</code>
+                <hr style="width:10%; color:#5ac6ee ">
+                <code>ls core-image-minimal*</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>the image will be a compressed file, the extension depending on how your machine compresses files, mine was .bz2. the image name will start with "core-image-minimal-raspberrypi0-wifi". my file name had the timestammp of the build at the end:<br/>
+                core-image-minimal-raspberrypi0-wifi.rootfs-20260803065926.wic.bz2</p>
+                <p>unzip the image using the found file name. run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>bunzip2 -kf YOUR_FILE_NAME.wic.bz2</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>give it a minute to complete. the -k flag keeps the original zip file, copying it then unzipping the original. the -f flag ifnores that the file has a link to another file. the unzipped file extension will be .wic, which is the full disk image, including the blootloader, rootfs, and partition table. to see the file, run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>ls *.wic</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <div class="image-row">
+                    <img
+                        src="media/step7.png"
+                        alt="screenshot from linux's terminal showing the output of the commands listed in step seven."
+                        class="project-image float-right zoomable" />
+                </div>
+            </section>
+
+            <section id="step8">
+                <p class="step-title">step eight<br/>flash the microSD with your image!</p>
+                <p>locate the microSD. before and after inserting the card into the host machine, run the command:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>lsblk</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>bto be sure of the device name. verify that the size matches the microSD's size. DO NOT guess the device as you don't want to wipe your host machine!</p>
+                <p>mine appeared as /dev/sdc/ and a partition had a mount point because it was used before. if yours has a mount point, you'll need to unmount it first. to unmount, run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>sudo umount /dev/sdc1</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>replacing "sdc1" with what your device mount point is.</p>
+                <p>your microSD is ready to be flashed! run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>sudo apt update</code>
+                <hr style="width:10%; color:#5ac6ee ">
+                <code>sudo apt install bmaptool copy YOUR_FILE_NAME.wic /dev/sdc</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>replace "sdc" with your block device name.</p>
+                <p>then eject safely. run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>sudo sync</code>
+                <hr style="width:10%; color:#5ac6ee ">
+                <code>sudo eject /dev/YOUR_DEVICE</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>then insert the microSD into the raspberry pi 0 w.</p>
+                <div class="image-row">
+                    <img
+                        src="media/step8_1.png"
+                        alt="screenshot from linux's terminal showing the output lsblk, showing the device's mount point."
+                        class="project-image float-right zoomable" />
+                        <img
+                        src="media/step8_2.png"
+                        alt="screenshot from linux's terminal showing the output lsblk, after unmounting device."
+                        class="project-image float-right zoomable" />
+                        <img
+                        src="media/step8_3.png"
+                        alt="screenshot from linux's terminal showing the output the commands listed above to flash the microSD and eject safely."
+                        class="project-image float-right zoomable" />
+                </div>
+            </section>
+
+            <section id="step9">
+                <p class="step-title">step nine<br/>connect the USB to TTL adapter</p>
+                <p>in a minimal image, there is no HDMI friendly video output by default, and wifi won't be configured yet. we have to use serial to communicate with the pi, using a USB to TTL serial adapter.</p>
+                <p>connect the adapter  to the pi's GPIO, only wiring GND, TX, and RX (see the pin out below, use UART0_TXD and UART0_RXD). use an external power supply to power the raspberry pi directly. i did it this way because eventually i need the pi to be independent, so i didn't want to rely on power from the adapter.</p>
+                <p>wire and plug the USB into the host computer. do NOT power the pi yet! there will be a specific instruction when the pi is ready to be plugged into power.</p>
+                <div class="image-row">
+                    <img
+                        src="media/step9_1.png"
+                        alt="raspberry pi 0 w pinout."
+                        class="project-image float-right zoomable" />
+                    <img
+                        src="media/step9_2.jpeg"
+                        style="width: 30%"
+                        alt="photo of raspberry pi 0 w connected to camera module v3 and usb to ttl adapter."
+                        class="project-image float-right zoomable" />
+                </div>
+            </section>
+
+            <section id="step10">
+                <p class="step-title">step ten<br/>find device and set permissions</p>
+                <p>after adapter is inserted into host machine, run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>sudo dmesg | tail</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>find a message that says new device connected and note the name. mine was "/dev/ttyUSB0/".</p>
+                <p>set up the serial terminal program and set permissions on the host machine. i used minicom for serial communication because i like the interface, but screen or picocom would be good alternatives as well.<br/>install minicom and give yourself permission to communicate through serial. run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>sudo apt install minicom</code>
+                <hr style="width:10%; color:#5ac6ee ">
+                <code>sudo usermod -aG dialout $USER</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>then log out and log back in for the new permission to take effect.</p>
+                <div class="image-row">
+                    <img
+                        src="media/step10.png"
+                        alt="screenshow of terminal sudo dmesg | tail output to show device name."
+                        class="project-image float-right zoomable" />
+                </div>
+            </section>
+
+            <section id="step11">
+                <p class="step-title">step eleven<br/>open serial communication</p>
+                <p>open terminal when logged back in. with the pi still NOT powered on, run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>minicom -D /dev/ttyUSB0 -b 115200</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>replacing ttyUSB0 with your device name. finally, plug the power cable into the pi! after a moment, serial messages should stream in. wait for the login prompt, then type "root" and enter. if prompted for a password (i wasn't), just hit enter.</p>
+                <div class="image-row">
+                    <img
+                        src="media/step11_1.png"
+                        alt="screenshow of terminal minicom command."
+                        class="project-image float-right zoomable" />
+                    <img
+                        src="media/step11_2.png"
+                        alt="screenshow of minicom before plugging in pi."
+                        class="project-image float-right zoomable" />
+                    <img
+                        src="media/step11_3.png"
+                        alt="screenshow of minicom after plugging in pi and entering root in the login."
+                        class="project-image float-right zoomable" />
+                </div>
+            </section>
+
+            <section id="step12">
+                <p class="step-title">step twelve<br/>confirm wifi driver</p>
+                <p>we are officially in the pi! let's confirm that the wifi driver is loaded properly. run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>lsmod | grep brcm</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>the output should be a list with brcmfmac, brcmutil, cfg80211, and brcmfmac_wcc. then run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>ip link</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>the output should show wlan0 and lo.</p>
+                <div class="image-row">
+                    <img
+                        src="media/step12.png"
+                        alt="screenshow of minicom verifying wifi drivers."
+                        class="project-image float-right zoomable" />
+                </div>
+            </section>
+
+            <section id="step13">
+                <p class="step-title">step thirteen<br/>make and initialize wpa_supplicant</p>
+                <p>create wpa_supplicant configuration file to connect to wifi. run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>cat > /etc/wpa_supplicant.conf << 'EOF'<br/>
+                network={<br/>
+                ssid="WIFI-NAME"<br/>
+                psk="WIFI-PASSWORD"<br/>
+                }<br/>
+                EOF</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>replace "WIFI-NAME" and "WIFI-PASSWORD" with the name and password of the wifi you're connecting to. make sure the name exactly matches (capitalization, spaces, etc).</p>
+                <p>set up the interface and initialize wpa_supplicant. run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>ip link set wlan0 up</code>
+                <hr style="width:10%; color:#5ac6ee ">
+                <code>wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <div class="image-row">
+                    <img
+                        src="media/step13_1.png"
+                        alt="screenshow of minicom setup wpa_supplicant file."
+                        class="project-image float-right zoomable" />
+                    <img
+                        src="media/step13_2.png"
+                        alt="screenshow of minicom initializing wpa_supplicant."
+                        class="project-image float-right zoomable" />
+                </div>
+            </section>
+
+            <section id="step14">
+                <p class="step-title">step fourteen<br/>IP address</p>
+                <p>ask the wifi router to assign an IP address to the pi. run:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>udhcpc -i wlan0</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>after receiving a message that the pi obtained an IP address from the router's IP address, confirm / verify by running:</p>
+                <hr style="width:90%; color:#5ac6ee ">
+                <code>ip address show wlan0</code>
+                <hr style="width:10%; color:#5ac6ee ">
+                <code>ping -c 3 8.8.8.8</code>
+                <hr style="width:90%; color:#5ac6ee ">
+                <p>yay, the wifi is set up!</p>
+                <div class="image-row">
+                    <img
+                        src="media/step14.png"
+                        alt="screenshow of minicom showing output of ip address requests."
+                        class="project-image float-right zoomable" />
+                </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 created by calico. all rights reserved.</p>
+        </footer>
+
+        <div class="lightbox" id="lightbox">
+            <span class="lightbox-close">✕</span>
+            <img id="lightbox-img" src="" alt="" />
+        </div>
+
+        <script src="../../../photography/lightbox.js"></script>
+        <script>
+            const testImg = document.querySelector(".zoomable");
+            console.log("zoomable:", testImg);
+            testImg.addEventListener("click", () => {
+                console.log("manual click listener fired");
+            });
+        </script>
+        <script src="../../typewriter.js"></script>
+    </body>
+</html>
