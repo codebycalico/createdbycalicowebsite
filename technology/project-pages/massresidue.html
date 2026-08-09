@@ -1,0 +1,138 @@
+<!--
+  calico rose's website - createdbycalico.com
+  echoing emotions project page
+  YouTube video references: https://www.w3schools.com/hTml/html_youtube.asp
+  https://www.reddit.com/r/webdev/comments/1oqs3j6/fix_for_youtube_embedded_player_error_153/
+  note for youtube embedding: just go to share on the youtube video and copy the embbedding code.
+  it will likely show a 153 error when hosting locally, but after pushing to github, the .io or custom 
+  domain will show a working embedded video.
+-->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Calico Rose Randall - Software Engineer</title>
+        <meta
+            name="description"
+            content="A group exhibit featuring interactive digital art, sculptures, and interactive audio-visuals in a traditional gallery space." />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../tech.css" />
+        <link rel="icon" type="image/x-icon" href="../../favicon.png" />
+        <style>
+            nav {
+                border-bottom: 1px solid #5ac6ee;
+            }
+            nav a {
+                color: #5ac6ee;
+            }
+            nav a:hover {
+                text-shadow: 0 0 8px #5ac6ee;
+            }
+            body {
+                color: #5ac6ee;
+            }
+            h2 {
+                text-shadow: 0 0 10px #5ac6ee;
+            }
+            h3 {
+                color: #5ac6ee;
+            }
+            a {
+                color: #5ac6ee;
+            }
+            footer {
+                border-top: 1px solid #5ac6ee;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="../projects.html" class="nav-home">← projects</a>
+            <a href="../tech.html#about">about</a>
+            <a href="../tech.html#contact">contact</a>
+        </nav>
+
+        <section id="ee">
+            <h2 data-text="mass residue"></h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe
+                        title="vimeo-player"
+                        src="https://player.vimeo.com/video/391889945?h=4f7b8dde14"
+                        width="100%"
+                        frameborder="0"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="
+                            autoplay;
+                            fullscreen;
+                            picture-in-picture;
+                            clipboard-write;
+                            encrypted-media;
+                            web-share;
+                        "></iframe>
+                    <a href="https://vimeo.com/391889945" target="_blank">
+                        <h3>
+                            courtesy of
+                            <a href="https://clamber.org" target="blank"
+                                >Clamber</a
+                            >.
+                        </h3>
+                    </a>
+                </div>
+
+                <div class="video-card">
+                    <video
+                        controls
+                        poster="../media/mr/massresidue_vidcover.png">
+                        <source
+                            src="../media/mr/massresidue.mp4"
+                            type="video/mp4" />
+                        your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="project-description">
+                <img
+                    src="../media/mr/massresidue2.jpg"
+                    alt="calico standing in front of her perlin noise projection piece."
+                    class="project-image float-right" />
+                <p>
+                    mass residue was a group installation that transformed a
+                    traditional gallery space in downtown Vancouver, WA into an
+                    interactive, expirimental exhibit featuring sculptures,
+                    videos, and interactive audio and visuals from an all-femme
+                    group.
+                </p>
+                <p>
+                    i created a Perlin noise visual in Processing to be
+                    projected onto the "hallway" wall. using Kinect's skeletal
+                    tracking, the software program drew lines for the arms of
+                    visitors and the direction of the Perlin noise's flow could
+                    be changed based on the waving motion of the visitors. the
+                    flow was also reactive to the ampliltude of the audio in the
+                    space, the color being more vibrant the louder that it was
+                    and more muted the quieter it was.
+                </p>
+                <p>
+                    while each artist had their own ideas and designs, the
+                    installation process was very collaborative and we all
+                    helped each other in any way that we could.
+                </p>
+                <div>
+                    <img
+                        src="../media/mr/massresidue1.jpg"
+                        alt="instructional graphic on how to use the program, with a border of horse shoes and two horse heads next to each other"
+                        class="float-left"
+                        width="60%" />
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 created by calico. all rights reserved.</p>
+        </footer>
+
+        <script src="../typewriter.js"></script>
+    </body>
+</html>
